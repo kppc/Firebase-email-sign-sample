@@ -57,6 +57,11 @@ public class AuthHelp {
         });
     }
 
+    public void LogOut(){
+        FirebaseAuth.getInstance().signOut();
+        mContext.startActivity(new Intent(mContext, MainActivity.class));
+    }
+
     public void Leave(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
